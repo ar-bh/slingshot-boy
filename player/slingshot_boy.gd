@@ -22,7 +22,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		_pivot.rotate_y(-event.relative.x * 0.0025)
-		_pitch = clampf(_pitch - event.relative.y * 0.0025, deg_to_rad(-50.0), deg_to_rad(25.0))
+		_pitch = clampf(_pitch - event.relative.y * 0.0025, deg_to_rad(-90.0), deg_to_rad(90.0))
 		_pitch_pivot.rotation.x = _pitch
 	elif event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
