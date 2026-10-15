@@ -14,7 +14,7 @@ var constant_pos: Vector3
 var constant_pos_ref: Vector3
 var wish_pos: Vector3
 
-var distance_threshold := 1.0
+var distance_threshold := 0.5
 var _tween: Tween
 var _tween_right: Tween
 
@@ -44,31 +44,36 @@ func _process(_delta: float) -> void:
 
 
 func _leg(leg: Node, side: float, tween: Tween) -> void:
-	var knee := Vector3(leg.get_node(^"Middle").position) + Vector3(side * bend, 0.0, 0.0)
-	_set_curve(leg, Vector3(leg.get_node(^"Beginning").position), knee, Vector3(leg.get_node(^"End").position))
-	
-	if Engine.is_editor_hint():
-		return
-	
-	var constant_foot: Node3D = leg.get_node(^"ConstantFoot")
-	var wish_foot: Node3D = leg.get_node(^"WishFoot")
-	var end: Node3D = leg.get_node(^"End")
-	constant_pos = constant_foot.global_position
-	wish_pos = wish_foot.global_position
-	
-	end.global_position = wish_foot.global_position
-	
-	if constant_pos.distance_to(wish_foot.global_position) >= distance_threshold:
-		if tween == null or not tween.is_running():
-			var from: Vector3 = wish_foot.global_position
-			tween = create_tween()
-			tween.tween_method(func(t: float) -> void:
-				wish_foot.global_position = from.lerp(constant_foot.global_position, t)
-				, 0.252, 1.0, 0.2)
-	if leg == $LeftLeg:
-		_tween = tween
-	else:
-		_tween_right = tween
+	if not Engine.is_editor_hint():
+		var constant_foot: Node3D = leg.get_node(^"ConstantFoot")
+		var wish_foot: Node3D = leg.get_node(^"WishFoot")
+		var end: Node3D = leg.get_node(^"End")
+		constant_pos = constant_foot.global_position
+		wish_pos = wish_foot.global_position
+		end.global_position = wish_foot.global_position
+		var other_busy := false
+		if leg == $LeftLeg and _tween_right != null and _tween_right.is_running():
+			other_busy = true
+		if leg == $RightLeg and _tween != null and _tween.is_running():
+			other_busy = true
+		if constant_pos.distance_to(wish_foot.global_position) >= distance_threshold and not other_busy:
+			if tween == null or not tween.is_running():
+				var from: Vector3 = wish_foot.global_position
+				tween = create_tween()
+				tween.tween_method(func(t: float) -> void:
+					var goal := constant_foot.global_position
+					var pos := from.lerp(goal, t)
+					pos.y += sin(t * PI) * 0.45
+					wish_foot.global_position = pos
+				, 0.0, 1.0, 0.2)
+		if leg == $LeftLeg:
+			_tween = tween
+		else:
+			_tween_right = tween
+	var hip := Vector3(leg.get_node(^"Beginning").position)
+	var foot := Vector3(leg.get_node(^"End").position)
+	var knee := Vector3(leg.get_node(^"Middle").position)
+	_set_curve(leg, hip, knee, foot)
 
 
 #region tube
