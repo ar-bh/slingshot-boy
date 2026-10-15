@@ -1,0 +1,1 @@
+class_name SlingshotBoy extends CharacterBody3D
