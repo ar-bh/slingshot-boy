@@ -16,13 +16,14 @@ func _ready() -> void:
 	tube.path_interval = 0.04
 	tube.path_simplify_angle = 0.0
 	tube.path_rotation_accurate = true
+	tube.path_local = true
 	tube.smooth_faces = true
 	_apply_thickness()
 
 func _process(_delta: float) -> void:
 	_apply_thickness()
-	var knee: Vector3 = $Middle.global_position + global_basis.x * bend_side * bend
-	_set_curve($Beginning.global_position, knee, $End.global_position)
+	var knee := Vector3($Middle.position) + Vector3(bend_side * bend, 0.0, 0.0)
+	_set_curve(Vector3($Beginning.position), knee, Vector3($End.position))
 
 func _apply_thickness() -> void:
 	if is_equal_approx(_thickness_applied, thickness):
@@ -47,6 +48,6 @@ func _set_curve(hip: Vector3, knee: Vector3, foot: Vector3) -> void:
 		var t := float(i) / float(steps - 1)
 		var u := 1.0 - t
 		var point := u * u * hip + 2.0 * u * t * control + t * t * foot
-		curve.set_point_position(i, path.to_local(point))
+		curve.set_point_position(i, point)
 		curve.set_point_in(i, Vector3.ZERO)
 		curve.set_point_out(i, Vector3.ZERO)

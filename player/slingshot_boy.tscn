@@ -4,10 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b3xmn3tugl0bl" path="res://assets/slingshotboy.glb" id="2_ekwqv"]
 [ext_resource type="Script" uid="uid://cd76idre2alfx" path="res://player/leg.gd" id="3_ekwqv"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mn11d"]
-radius = 1.1430664
-height = 3.2470703
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekwqv"]
 albedo_color = Color(0, 0, 0, 1)
 
@@ -32,37 +28,41 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mn11d"]
+radius = 1.1430664
+height = 3.2470703
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mn11d"]
+radius = 0.2
+
 [node name="SlingshotBoy" type="CharacterBody3D" unique_id=1205031818]
 script = ExtResource("1_bsi02")
 
 [node name="SlingshotMesh" parent="." unique_id=528869564 instance=ExtResource("2_ekwqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2018938, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=951370208]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6270152, 0)
-shape = SubResource("CapsuleShape3D_mn11d")
-
-[node name="LeftLeg" type="Node3D" parent="." unique_id=2119698638]
+[node name="LeftLeg" type="Node3D" parent="SlingshotMesh" unique_id=2119698638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2018938, 0)
 script = ExtResource("3_ekwqv")
 thickness = -0.14
 
-[node name="Beginning" type="Marker3D" parent="LeftLeg" unique_id=1809003582]
+[node name="Beginning" type="Marker3D" parent="SlingshotMesh/LeftLeg" unique_id=1809003582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36052638, 1.3401678, 0)
 
-[node name="Middle" type="Marker3D" parent="LeftLeg" unique_id=1741558153]
+[node name="Middle" type="Marker3D" parent="SlingshotMesh/LeftLeg" unique_id=1741558153]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46924675, 0.7315943, 0.12565485)
 
-[node name="End" type="Marker3D" parent="LeftLeg" unique_id=1534178918]
+[node name="End" type="Marker3D" parent="SlingshotMesh/LeftLeg" unique_id=1534178918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66413087, 0.12115666, 0.018871665)
 
-[node name="Shoe" type="MeshInstance3D" parent="LeftLeg/End" unique_id=1028564338]
+[node name="Shoe" type="MeshInstance3D" parent="SlingshotMesh/LeftLeg/End" unique_id=1028564338]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.04, -0.008033868)
 mesh = SubResource("SphereMesh_mn11d")
 
-[node name="Path3D" type="Path3D" parent="LeftLeg" unique_id=1434467764]
+[node name="Path3D" type="Path3D" parent="SlingshotMesh/LeftLeg" unique_id=1434467764]
 curve = SubResource("Curve3D_bsi02")
 
-[node name="Tube" type="CSGPolygon3D" parent="LeftLeg" unique_id=141979103]
+[node name="Tube" type="CSGPolygon3D" parent="SlingshotMesh/LeftLeg" unique_id=141979103]
 polygon = PackedVector2Array(-0.14, 0, -0.11326238, -0.082289934, -0.04326238, -0.13314791, 0.04326238, -0.13314791, 0.11326238, -0.082289934, 0.14, -1.7145055e-17, 0.11326238, 0.082289934, 0.04326238, 0.13314791, -0.04326238, 0.13314791, -0.11326238, 0.082289934)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -71,35 +71,36 @@ path_interval = 0.04
 path_simplify_angle = 0.0
 path_rotation = 2
 path_rotation_accurate = true
-path_local = false
+path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 smooth_faces = true
 material = SubResource("StandardMaterial3D_u8yam")
 
-[node name="RightLeg" type="Node3D" parent="." unique_id=2049113970]
+[node name="RightLeg" type="Node3D" parent="SlingshotMesh" unique_id=2049113970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2018938, 0)
 script = ExtResource("3_ekwqv")
 thickness = -0.14
 bend_side = 1.0
 
-[node name="Beginning" type="Marker3D" parent="RightLeg" unique_id=913969687]
+[node name="Beginning" type="Marker3D" parent="SlingshotMesh/RightLeg" unique_id=913969687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27746797, 1.4884853, 0)
 
-[node name="Middle" type="Marker3D" parent="RightLeg" unique_id=459338931]
+[node name="Middle" type="Marker3D" parent="SlingshotMesh/RightLeg" unique_id=459338931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46924675, 0.7315943, 0.12565485)
 
-[node name="End" type="Marker3D" parent="RightLeg" unique_id=719411503]
+[node name="End" type="Marker3D" parent="SlingshotMesh/RightLeg" unique_id=719411503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65226525, 0.12115666, 0.018871665)
 
-[node name="Shoe" type="MeshInstance3D" parent="RightLeg/End" unique_id=14654438]
+[node name="Shoe" type="MeshInstance3D" parent="SlingshotMesh/RightLeg/End" unique_id=14654438]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.04, -0.008033868)
 mesh = SubResource("SphereMesh_mn11d")
 
-[node name="Path3D" type="Path3D" parent="RightLeg" unique_id=759694351]
+[node name="Path3D" type="Path3D" parent="SlingshotMesh/RightLeg" unique_id=759694351]
 curve = SubResource("Curve3D_right")
 
-[node name="Tube" type="CSGPolygon3D" parent="RightLeg" unique_id=731005496]
+[node name="Tube" type="CSGPolygon3D" parent="SlingshotMesh/RightLeg" unique_id=731005496]
 polygon = PackedVector2Array(-0.14, 0, -0.11326238, -0.082289934, -0.04326238, -0.13314791, 0.04326238, -0.13314791, 0.11326238, -0.082289934, 0.14, -1.7145055e-17, 0.11326238, 0.082289934, 0.04326238, 0.13314791, -0.04326238, 0.13314791, -0.11326238, 0.082289934)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -108,9 +109,30 @@ path_interval = 0.04
 path_simplify_angle = 0.0
 path_rotation = 2
 path_rotation_accurate = true
-path_local = false
+path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 smooth_faces = true
 material = SubResource("StandardMaterial3D_u8yam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=951370208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6270152, 0)
+shape = SubResource("CapsuleShape3D_mn11d")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=973652776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+
+[node name="Pitch" type="Node3D" parent="CameraPivot" unique_id=787623862]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot/Pitch" unique_id=1105263001]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_mn11d")
+spring_length = 5.0
+margin = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Pitch/SpringArm3D" unique_id=1036104055]
+unique_name_in_owner = true
+current = true
