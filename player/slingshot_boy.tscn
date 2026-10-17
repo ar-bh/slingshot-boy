@@ -26,6 +26,20 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8yam"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wqx6k"]
+material = SubResource("StandardMaterial3D_u8yam")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekwqv"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iemch"]
+material = SubResource("StandardMaterial3D_ekwqv")
+size = Vector2(0.5, 0.5)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mn11d"]
 radius = 1.1430664
 height = 3.2651367
@@ -103,6 +117,7 @@ mesh = SubResource("SphereMesh_mn11d")
 
 [node name="Legs" type="Node3D" parent="SlingshotMesh/Skeleton" unique_id=242506008]
 script = ExtResource("3_ekwqv")
+distance_threshold = null
 
 [node name="LeftPath" type="Path3D" parent="SlingshotMesh/Skeleton/Legs" unique_id=1819692393]
 curve = SubResource("Curve3D_mn11d")
@@ -141,13 +156,21 @@ path_joined = false
 smooth_faces = true
 
 [node name="LeftFootTarget" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=955091862]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.202, 0.019)
 
-[node name="RightFootTarget" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=728896682]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.202, 0.019)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotMesh/Skeleton/LeftFootTarget" unique_id=55582352]
+mesh = SubResource("PlaneMesh_wqx6k")
 
 [node name="LeftPole" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=2013079355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47, -1.47, 1)
+
+[node name="RightFootTarget" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=728896682]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.202, 0.019)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotMesh/Skeleton/RightFootTarget" unique_id=531461323]
+mesh = SubResource("PlaneMesh_wqx6k")
 
 [node name="RightPole" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=927891429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47, -1.47, 1)
@@ -176,6 +199,20 @@ settings/1/end_bone_name = "RightFoot"
 settings/1/end_bone = 5
 settings/1/use_virtual_end = false
 settings/1/extend_end_bone = false
+
+[node name="LeftConstant" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=1607106341]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.202, 0.019)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotMesh/Skeleton/LeftConstant" unique_id=1109798055]
+mesh = SubResource("PlaneMesh_iemch")
+
+[node name="RightConstant" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=956276769]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.202, 0.019)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotMesh/Skeleton/RightConstant" unique_id=1249230702]
+mesh = SubResource("PlaneMesh_iemch")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." unique_id=951370208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.617982, 0)
