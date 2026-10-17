@@ -11,7 +11,7 @@ var _pitch := deg_to_rad(-15.0)
 
 @onready var _pivot: Node3D = $CameraPivot
 @onready var _pitch_pivot: Node3D = $CameraPivot/Pitch
-@onready var _model: Node3D = $SlingshotMesh
+@onready var _model: Node3D = $SlingshotBody
 
 
 func _ready() -> void:
