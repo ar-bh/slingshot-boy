@@ -14,14 +14,14 @@ height = 0.5
 
 [sub_resource type="Curve3D" id="Curve3D_mn11d"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.318997, -0.387567, 0, 0, 0, 0, 0, 0, 0, -0.34544182, -0.62170213, 0.040135138, 0, 0, 0, 0, 0, 0, -0.37227485, -0.8392706, 0.07258638, 0, 0, 0, 0, 0, 0, -0.39949596, -1.0402727, 0.09735372, 0, 0, 0, 0, 0, 0, -0.42710525, -1.2247081, 0.114437155, 0, 0, 0, 0, 0, 0, -0.45510268, -1.3925769, 0.12383669, 0, 0, 0, 0, 0, 0, -0.4834883, -1.5438794, 0.12555233, 0, 0, 0, 0, 0, 0, -0.512262, -1.6786151, 0.11958407, 0, 0, 0, 0, 0, 0, -0.5414239, -1.7967844, 0.10593189, 0, 0, 0, 0, 0, 0, -0.570974, -1.8983872, 0.08459583, 0, 0, 0, 0, 0, 0, -0.60091215, -1.9834234, 0.05557586, 0, 0, 0, 0, 0, 0, -0.63123846, -2.051893, 0.018871993),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.318997, -0.787567, 0, 0, 0, 0, 0, 0, 0, -0.35381758, -0.92536473, 0.030730207, 0, 0, 0, 0, 0, 0, -0.3863018, -1.0571542, 0.056356717, 0, 0, 0, 0, 0, 0, -0.41644955, -1.1829354, 0.07687953, 0, 0, 0, 0, 0, 0, -0.44426095, -1.3027083, 0.09229865, 0, 0, 0, 0, 0, 0, -0.46973598, -1.4164729, 0.10261407, 0, 0, 0, 0, 0, 0, -0.49287456, -1.5242293, 0.10782579, 0, 0, 0, 0, 0, 0, -0.51367676, -1.6259774, 0.10793382, 0, 0, 0, 0, 0, 0, -0.53214264, -1.7217172, 0.102938145, 0, 0, 0, 0, 0, 0, -0.5482721, -1.8114489, 0.09283879, 0, 0, 0, 0, 0, 0, -0.56206506, -1.8951722, 0.07763572, 0, 0, 0, 0, 0, 0, -0.57352173, -1.9728873, 0.057328966),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 12
 
 [sub_resource type="Curve3D" id="Curve3D_ekwqv"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.318997, -0.387567, 0, 0, 0, 0, 0, 0, 0, 0.34558997, -0.6216719, 0.04015128, 0, 0, 0, 0, 0, 0, 0.37250525, -0.8392237, 0.07261148, 0, 0, 0, 0, 0, 0, 0.39974287, -1.0402223, 0.097380616, 0, 0, 0, 0, 0, 0, 0.42730275, -1.2246678, 0.11445867, 0, 0, 0, 0, 0, 0, 0.455185, -1.3925602, 0.12384565, 0, 0, 0, 0, 0, 0, 0.48338956, -1.5438995, 0.12554157, 0, 0, 0, 0, 0, 0, 0.5119164, -1.6786857, 0.1195464, 0, 0, 0, 0, 0, 0, 0.5407655, -1.7969186, 0.10586016, 0, 0, 0, 0, 0, 0, 0.56993705, -1.8985987, 0.08448284, 0, 0, 0, 0, 0, 0, 0.5994308, -1.9837253, 0.055414457, 0, 0, 0, 0, 0, 0, 0.62924695, -2.052299, 0.018654995),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.318997, -0.787567, 0, 0, 0, 0, 0, 0, 0, 0.35280403, -0.9253354, 0.030405056, 0, 0, 0, 0, 0, 0, 0.38472393, -1.0570992, 0.05576876, 0, 0, 0, 0, 0, 0, 0.41475672, -1.1828583, 0.0760911, 0, 0, 0, 0, 0, 0, 0.44290233, -1.3026129, 0.0913721, 0, 0, 0, 0, 0, 0, 0.46916085, -1.4163628, 0.10161174, 0, 0, 0, 0, 0, 0, 0.49353218, -1.5241079, 0.10681003, 0, 0, 0, 0, 0, 0, 0.51601636, -1.6258485, 0.10696696, 0, 0, 0, 0, 0, 0, 0.53661346, -1.7215848, 0.10208254, 0, 0, 0, 0, 0, 0, 0.5553234, -1.811316, 0.09215677, 0, 0, 0, 0, 0, 0, 0.57214624, -1.8950429, 0.07718964, 0, 0, 0, 0, 0, 0, 0.5870819, -1.972765, 0.05718116),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 12
@@ -49,14 +49,14 @@ bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "LeftKnee"
 bones/1/parent = 0
-bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15025, -0.682732, 0.125655)
+bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.683, 0.126)
 bones/1/enabled = true
-bones/1/position = Vector3(-0.15025, -0.682732, 0.125655)
+bones/1/position = Vector3(-0.15, -0.683, 0.126)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "LeftFoot"
 bones/2/parent = 1
-bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.188951, -0.731594, -0.106783)
+bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16199148, -0.731594, -0.106783)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.16199148, -0.731594, -0.106783)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
@@ -77,14 +77,14 @@ bones/4/rotation = Quaternion(0, 0, 0, 1)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "RightFoot"
 bones/5/parent = 4
-bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188951, -0.731594, -0.106783)
+bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, -0.732, -0.107)
 bones/5/enabled = true
 bones/5/position = Vector3(0.16, -0.732, -0.107)
 bones/5/rotation = Quaternion(0, 0, 0, 1)
 bones/5/scale = Vector3(1, 1, 1)
 
 [node name="LeftShoe" type="BoneAttachment3D" parent="SlingshotMesh/Skeleton" unique_id=414329660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63123846, -2.201893, 0.018871993)
+transform = Transform3D(0.99968845, 0.017115504, 0.01816825, -0.01753038, 0.9995834, 0.02292708, -0.017768275, -0.023238428, 0.99957204, -0.658, -2.202, 0.018999994)
 bone_name = "LeftFoot"
 bone_idx = 2
 
@@ -93,7 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07975447, 0.22957239, 0.045
 mesh = SubResource("SphereMesh_mn11d")
 
 [node name="RightShoe" type="BoneAttachment3D" parent="SlingshotMesh/Skeleton" unique_id=1230204842]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62924695, -2.202299, 0.018654995)
+transform = Transform3D(0.9996319, -0.019797303, -0.018550536, 0.020249665, 0.99949414, 0.02452334, 0.018055659, -0.024889953, 0.99952716, 0.65800005, -2.2019997, 0.019000001)
 bone_name = "RightFoot"
 bone_idx = 5
 
@@ -139,6 +139,43 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 smooth_faces = true
+
+[node name="LeftFootTarget" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=955091862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.202, 0.019)
+
+[node name="RightFootTarget" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=728896682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.202, 0.019)
+
+[node name="LeftPole" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=2013079355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47, -1.47, 1)
+
+[node name="RightPole" type="Marker3D" parent="SlingshotMesh/Skeleton" unique_id=927891429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47, -1.47, 1)
+
+[node name="TwoBoneIK3D" type="TwoBoneIK3D" parent="SlingshotMesh/Skeleton" unique_id=1317250311]
+setting_count = 2
+settings/0/target_node = NodePath("../LeftFootTarget")
+settings/0/pole_node = NodePath("../LeftPole")
+settings/0/root_bone_name = "LeftHip"
+settings/0/root_bone = 0
+settings/0/middle_bone_name = "LeftKnee"
+settings/0/middle_bone = 1
+settings/0/pole_direction = 5
+settings/0/end_bone_name = "LeftFoot"
+settings/0/end_bone = 2
+settings/0/use_virtual_end = false
+settings/0/extend_end_bone = false
+settings/1/target_node = NodePath("../RightFootTarget")
+settings/1/pole_node = NodePath("../RightPole")
+settings/1/root_bone_name = "RightHip"
+settings/1/root_bone = 3
+settings/1/middle_bone_name = "RightKnee"
+settings/1/middle_bone = 4
+settings/1/pole_direction = 5
+settings/1/end_bone_name = "RightFoot"
+settings/1/end_bone = 5
+settings/1/use_virtual_end = false
+settings/1/extend_end_bone = false
 
 [node name="Hitbox" type="CollisionShape3D" parent="." unique_id=951370208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.617982, 0)

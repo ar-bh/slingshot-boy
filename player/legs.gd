@@ -12,26 +12,19 @@ var _thickness_applied := 999.0
 @onready var left_tube: CSGPolygon3D = $LeftTube
 @onready var right_tube: CSGPolygon3D = $RightTube
 
-func _process(_delta: float) -> void:
+func _ready() -> void:
+	if not skeleton.skeleton_updated.is_connected(_on_skeleton_updated):
+		skeleton.skeleton_updated.connect(_on_skeleton_updated)
+
+func _on_skeleton_updated() -> void:
 	_apply_thickness()
-	_set_curve(left_path, "LeftHip", "LeftKnee", "LeftFoot")
-	_set_curve(right_path, "RightHip", "RightKnee", "RightFoot")
-
-func _apply_thickness() -> void:
-	if is_equal_approx(_thickness_applied, thickness):
-		return
-	_thickness_applied = thickness
-	var ring := PackedVector2Array()
-	for i in 10:
-		var angle := TAU * float(i) / 10.0
-		ring.append(Vector2(cos(angle), sin(angle)) * thickness)
-	left_tube.polygon = ring
-	right_tube.polygon = ring
-
-func _set_curve(path: Path3D, hip_name: String, knee_name: String, foot_name: String) -> void:
-	var hip := _bone_pos(hip_name) + Vector3(0, 0.4, 0)
+	_set_curve(left_path, "LeftHip", "LeftKnee", $"../LeftShoe/MeshInstance3D")
+	_set_curve(right_path, "RightHip", "RightKnee", $"../RightShoe/MeshInstance3D")
+	
+func _set_curve(path: Path3D, hip_name: String, knee_name: String, shoe: Node3D) -> void:
+	var hip := _bone_pos(hip_name)
 	var knee := _bone_pos(knee_name)
-	var foot := _bone_pos(foot_name) + Vector3(0, 0.15, 0)
+	var foot := skeleton.to_local(shoe.global_position)
 	var control := 2.0 * knee - 0.5 * (hip + foot)
 	var curve := path.curve
 	var steps := 12
@@ -48,6 +41,17 @@ func _set_curve(path: Path3D, hip_name: String, knee_name: String, foot_name: St
 		curve.set_point_position(i, point)
 		curve.set_point_in(i, Vector3.ZERO)
 		curve.set_point_out(i, Vector3.ZERO)
+
+func _apply_thickness() -> void:
+	if is_equal_approx(_thickness_applied, thickness):
+		return
+	_thickness_applied = thickness
+	var ring := PackedVector2Array()
+	for i in 10:
+		var angle := TAU * float(i) / 10.0
+		ring.append(Vector2(cos(angle), sin(angle)) * thickness)
+	left_tube.polygon = ring
+	right_tube.polygon = ring
 
 func _bone_pos(bone_name: String) -> Vector3:
 	return skeleton.get_bone_global_pose(skeleton.find_bone(bone_name)).origin
