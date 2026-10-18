@@ -14,14 +14,14 @@ height = 0.5
 
 [sub_resource type="Curve3D" id="Curve3D_mn11d"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.318997, -0.787567, 0, 0, 0, 0, 0, 0, 0, -0.35381758, -0.92536473, 0.030730207, 0, 0, 0, 0, 0, 0, -0.3863018, -1.0571542, 0.056356717, 0, 0, 0, 0, 0, 0, -0.41644955, -1.1829354, 0.07687953, 0, 0, 0, 0, 0, 0, -0.44426095, -1.3027083, 0.09229865, 0, 0, 0, 0, 0, 0, -0.46973598, -1.4164729, 0.10261407, 0, 0, 0, 0, 0, 0, -0.49287456, -1.5242293, 0.10782579, 0, 0, 0, 0, 0, 0, -0.51367676, -1.6259774, 0.10793382, 0, 0, 0, 0, 0, 0, -0.53214264, -1.7217172, 0.102938145, 0, 0, 0, 0, 0, 0, -0.5482721, -1.8114489, 0.09283879, 0, 0, 0, 0, 0, 0, -0.56206506, -1.8951722, 0.07763572, 0, 0, 0, 0, 0, 0, -0.57352173, -1.9728873, 0.057328966),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.318997, -0.387567, 0, 0, 0, 0, 0, 0, 0, -0.3693667, -0.6247724, 0.08289361, 0, 0, 0, 0, 0, 0, -0.41466394, -0.8458736, 0.15120149, 0, 0, 0, 0, 0, 0, -0.45488867, -1.0508703, 0.20492359, 0, 0, 0, 0, 0, 0, -0.49004096, -1.2397628, 0.24405995, 0, 0, 0, 0, 0, 0, -0.5201208, -1.4125509, 0.26861054, 0, 0, 0, 0, 0, 0, -0.5451281, -1.5692348, 0.27857542, 0, 0, 0, 0, 0, 0, -0.56506294, -1.7098144, 0.2739545, 0, 0, 0, 0, 0, 0, -0.5799253, -1.8342896, 0.25474787, 0, 0, 0, 0, 0, 0, -0.58971524, -1.9426606, 0.22095549, 0, 0, 0, 0, 0, 0, -0.5944326, -2.0349271, 0.17257735, 0, 0, 0, 0, 0, 0, -0.5940775, -2.1110895, 0.10961345),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 12
 
 [sub_resource type="Curve3D" id="Curve3D_ekwqv"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.318997, -0.787567, 0, 0, 0, 0, 0, 0, 0, 0.35280403, -0.9253354, 0.030405056, 0, 0, 0, 0, 0, 0, 0.38472393, -1.0570992, 0.05576876, 0, 0, 0, 0, 0, 0, 0.41475672, -1.1828583, 0.0760911, 0, 0, 0, 0, 0, 0, 0.44290233, -1.3026129, 0.0913721, 0, 0, 0, 0, 0, 0, 0.46916085, -1.4163628, 0.10161174, 0, 0, 0, 0, 0, 0, 0.49353218, -1.5241079, 0.10681003, 0, 0, 0, 0, 0, 0, 0.51601636, -1.6258485, 0.10696696, 0, 0, 0, 0, 0, 0, 0.53661346, -1.7215848, 0.10208254, 0, 0, 0, 0, 0, 0, 0.5553234, -1.811316, 0.09215677, 0, 0, 0, 0, 0, 0, 0.57214624, -1.8950429, 0.07718964, 0, 0, 0, 0, 0, 0, 0.5870819, -1.972765, 0.05718116),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.318997, -0.387567, 0, 0, 0, 0, 0, 0, 0, 0.3683684, -0.62475145, 0.083141275, 0, 0, 0, 0, 0, 0, 0.41310653, -0.8458306, 0.15157755, 0, 0, 0, 0, 0, 0, 0.4532113, -1.0508043, 0.20530884, 0, 0, 0, 0, 0, 0, 0.48868284, -1.2396725, 0.24433513, 0, 0, 0, 0, 0, 0, 0.5195211, -1.4124354, 0.2686564, 0, 0, 0, 0, 0, 0, 0.545726, -1.569093, 0.2782727, 0, 0, 0, 0, 0, 0, 0.56729764, -1.709645, 0.273184, 0, 0, 0, 0, 0, 0, 0.58423597, -1.8340917, 0.25339028, 0, 0, 0, 0, 0, 0, 0.59654105, -1.9424329, 0.21889159, 0, 0, 0, 0, 0, 0, 0.60421276, -2.034669, 0.16968788, 0, 0, 0, 0, 0, 0, 0.6072512, -2.1107993, 0.105779186),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 12
@@ -42,7 +42,7 @@ size = Vector2(0.5, 0.5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mn11d"]
 radius = 1.1430664
-height = 3.2651367
+height = 3.5151367
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mn11d"]
 radius = 0.2
@@ -51,7 +51,7 @@ radius = 0.2
 script = ExtResource("1_bsi02")
 
 [node name="SlingshotBody" parent="." unique_id=528869564 instance=ExtResource("2_ekwqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2018938, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4518938, 0)
 
 [node name="Skeleton" type="Skeleton3D" parent="SlingshotBody" unique_id=1521935051]
 bones/0/name = "LeftHip"
@@ -63,16 +63,16 @@ bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "LeftKnee"
 bones/1/parent = 0
-bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.683, 0.126)
+bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37, -0.683, 0.126)
 bones/1/enabled = true
-bones/1/position = Vector3(-0.15, -0.683, 0.126)
+bones/1/position = Vector3(-0.37, -0.683, 0.126)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "LeftFoot"
 bones/2/parent = 1
-bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16199148, -0.731594, -0.106783)
+bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16199148, -0.981594, -0.106783)
 bones/2/enabled = true
-bones/2/position = Vector3(-0.16199148, -0.731594, -0.106783)
+bones/2/position = Vector3(-0.16199148, -0.981594, -0.106783)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "RightHip"
@@ -84,21 +84,21 @@ bones/3/rotation = Quaternion(0, 0, 0, 1)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "RightKnee"
 bones/4/parent = 3
-bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15025, -0.682732, 0.125655)
+bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37025, -0.682732, 0.125655)
 bones/4/enabled = true
-bones/4/position = Vector3(0.15025, -0.682732, 0.125655)
+bones/4/position = Vector3(0.37025, -0.682732, 0.125655)
 bones/4/rotation = Quaternion(0, 0, 0, 1)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "RightFoot"
 bones/5/parent = 4
-bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, -0.732, -0.107)
+bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, -0.982, -0.107)
 bones/5/enabled = true
-bones/5/position = Vector3(0.16, -0.732, -0.107)
+bones/5/position = Vector3(0.16, -0.982, -0.107)
 bones/5/rotation = Quaternion(0, 0, 0, 1)
 bones/5/scale = Vector3(1, 1, 1)
 
 [node name="LeftShoe" type="BoneAttachment3D" parent="SlingshotBody/Skeleton" unique_id=414329660]
-transform = Transform3D(0.99968845, 0.017115504, 0.01816825, -0.01753038, 0.9995834, 0.02292708, -0.017768275, -0.023238428, 0.99957204, -0.658, -2.202, 0.018999994)
+transform = Transform3D(0.96169955, -0.0018097609, -0.27409995, -0.029049993, 0.99367356, -0.108484864, 0.27256224, 0.11229241, 0.9555627, -0.65799993, -2.452, 0.019000024)
 bone_name = "LeftFoot"
 bone_idx = 2
 
@@ -107,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07975447, 0.22957239, 0.045
 mesh = SubResource("SphereMesh_mn11d")
 
 [node name="RightShoe" type="BoneAttachment3D" parent="SlingshotBody/Skeleton" unique_id=1230204842]
-transform = Transform3D(0.9996319, -0.019797303, -0.018550536, 0.020249665, 0.99949414, 0.02452334, 0.018055659, -0.024889953, 0.99952716, 0.65800005, -2.2019997, 0.019000001)
+transform = Transform3D(0.9617169, -0.00024981797, 0.27404487, 0.03107213, 0.9936503, -0.10813685, -0.27227777, 0.1125122, 0.955618, 0.65799993, -2.4519997, 0.019000143)
 bone_name = "RightFoot"
 bone_idx = 5
 
@@ -117,6 +117,7 @@ mesh = SubResource("SphereMesh_mn11d")
 
 [node name="Legs" type="Node3D" parent="SlingshotBody/Skeleton" unique_id=242506008]
 script = ExtResource("3_ekwqv")
+step_height = 0.25
 
 [node name="LeftPath" type="Path3D" parent="SlingshotBody/Skeleton/Legs" unique_id=1819692393]
 curve = SubResource("Curve3D_mn11d")
@@ -156,23 +157,23 @@ smooth_faces = true
 
 [node name="LeftFootTarget" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=955091862]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.202, 0.019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.452, 0.019)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/LeftFootTarget" unique_id=55582352]
 mesh = SubResource("PlaneMesh_wqx6k")
 
 [node name="LeftPole" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=2013079355]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47, -1.47, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72, -1.47, 1)
 
 [node name="RightFootTarget" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=728896682]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.202, 0.019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.452, 0.019)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/RightFootTarget" unique_id=531461323]
 mesh = SubResource("PlaneMesh_wqx6k")
 
 [node name="RightPole" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=927891429]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47, -1.47, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72, -1.47, 1)
 
 [node name="TwoBoneIK3D" type="TwoBoneIK3D" parent="SlingshotBody/Skeleton" unique_id=1317250311]
 setting_count = 2
@@ -201,20 +202,20 @@ settings/1/extend_end_bone = false
 
 [node name="LeftConstant" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=1607106341]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.202, 0.019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.452, 0.019)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/LeftConstant" unique_id=1109798055]
 mesh = SubResource("PlaneMesh_iemch")
 
 [node name="RightConstant" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=956276769]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.202, 0.019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.452, 0.019)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/RightConstant" unique_id=1249230702]
 mesh = SubResource("PlaneMesh_iemch")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." unique_id=951370208]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.617982, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.742982, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_mn11d")
 

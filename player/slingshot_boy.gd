@@ -1,11 +1,11 @@
 class_name SlingshotBoy
 extends CharacterBody3D
 
-const SPEED := 5.0
-const ACCEL := 60.0
-const AIR_ACCEL := 10.0
-const GRAVITY := 9.8 * 3.0
-const JUMP := 8.0
+@export var SPEED := 8.0
+@export var ACCEL := 60.0
+@export var AIR_ACCEL := 10.0
+@export var GRAVITY := 9.8 * 3.0
+@export var JUMP := 8.0
 
 var _pitch := deg_to_rad(-15.0)
 
