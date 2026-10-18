@@ -19,6 +19,8 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekwqv"]
+
 [sub_resource type="Curve3D" id="Curve3D_ekwqv"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.318997, -0.387567, 0, 0, 0, 0, 0, 0, 0, 0.3683684, -0.62475145, 0.083141275, 0, 0, 0, 0, 0, 0, 0.41310653, -0.8458306, 0.15157755, 0, 0, 0, 0, 0, 0, 0.4532113, -1.0508043, 0.20530884, 0, 0, 0, 0, 0, 0, 0.48868284, -1.2396725, 0.24433513, 0, 0, 0, 0, 0, 0, 0.5195211, -1.4124354, 0.2686564, 0, 0, 0, 0, 0, 0, 0.545726, -1.569093, 0.2782727, 0, 0, 0, 0, 0, 0, 0.56729764, -1.709645, 0.273184, 0, 0, 0, 0, 0, 0, 0.58423597, -1.8340917, 0.25339028, 0, 0, 0, 0, 0, 0, 0.59654105, -1.9424329, 0.21889159, 0, 0, 0, 0, 0, 0, 0.60421276, -2.034669, 0.16968788, 0, 0, 0, 0, 0, 0, 0.6072512, -2.1107993, 0.105779186),
@@ -33,11 +35,11 @@ albedo_color = Color(1, 1, 0, 1)
 material = SubResource("StandardMaterial3D_u8yam")
 size = Vector2(0.5, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekwqv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqx6k"]
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iemch"]
-material = SubResource("StandardMaterial3D_ekwqv")
+material = SubResource("StandardMaterial3D_wqx6k")
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mn11d"]
@@ -118,6 +120,9 @@ mesh = SubResource("SphereMesh_mn11d")
 [node name="Legs" type="Node3D" parent="SlingshotBody/Skeleton" unique_id=242506008]
 script = ExtResource("3_ekwqv")
 step_height = 0.25
+foot_spring = null
+foot_damping = null
+foot_gravity = null
 
 [node name="LeftPath" type="Path3D" parent="SlingshotBody/Skeleton/Legs" unique_id=1819692393]
 curve = SubResource("Curve3D_mn11d")
@@ -136,6 +141,7 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 smooth_faces = true
+material = SubResource("StandardMaterial3D_ekwqv")
 
 [node name="RightPath" type="Path3D" parent="SlingshotBody/Skeleton/Legs" unique_id=1191380071]
 curve = SubResource("Curve3D_ekwqv")
@@ -154,10 +160,12 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 smooth_faces = true
+material = SubResource("StandardMaterial3D_ekwqv")
 
 [node name="LeftFootTarget" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=955091862]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.452, 0.019)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/LeftFootTarget" unique_id=55582352]
 mesh = SubResource("PlaneMesh_wqx6k")
@@ -168,6 +176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72, -1.47, 1)
 [node name="RightFootTarget" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=728896682]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.452, 0.019)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/RightFootTarget" unique_id=531461323]
 mesh = SubResource("PlaneMesh_wqx6k")
@@ -203,6 +212,7 @@ settings/1/extend_end_bone = false
 [node name="LeftConstant" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=1607106341]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658, -2.452, 0.019)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/LeftConstant" unique_id=1109798055]
 mesh = SubResource("PlaneMesh_iemch")
@@ -210,13 +220,13 @@ mesh = SubResource("PlaneMesh_iemch")
 [node name="RightConstant" type="Marker3D" parent="SlingshotBody/Skeleton" unique_id=956276769]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658, -2.452, 0.019)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlingshotBody/Skeleton/RightConstant" unique_id=1249230702]
 mesh = SubResource("PlaneMesh_iemch")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." unique_id=951370208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.742982, 0)
-visible = false
 shape = SubResource("CapsuleShape3D_mn11d")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=973652776]

@@ -9,10 +9,18 @@ extends Node3D
 @export var distance_threshold := 0.55
 @export var step_time := 0.12
 @export var step_height := 0.45
+@export var foot_spring := 10.0
+@export var foot_damping := 1
+@export var foot_gravity := 0
+
 
 var _left_tween: Tween
 var _right_tween: Tween
 var _step_left := true
+
+var _airborne := false
+var _left_foot_vel := Vector3.ZERO
+var _right_foot_vel := Vector3.ZERO
 
 var _thickness_applied := 999.0
 
@@ -42,7 +50,7 @@ func _ready() -> void:
 	left_foot_target.top_level = true
 	right_foot_target.top_level = true
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
@@ -50,9 +58,18 @@ func _process(_delta: float) -> void:
 	right_constant_pos = right_constant.global_position
 
 	var body := _character()
-	if body != null and not body.is_on_floor():
-		_release_feet()
+	var airborne := body != null and not body.is_on_floor()
+	if airborne:
+		if not _airborne:
+			_begin_flop(body)
+		_left_foot_vel = _flop_foot(left_foot_target, left_constant, _left_foot_vel, delta)
+		_right_foot_vel = _flop_foot(right_foot_target, right_constant, _right_foot_vel, delta)
+		_airborne = true
 		return
+	if _airborne:
+		_left_foot_vel = Vector3.ZERO
+		_right_foot_vel = Vector3.ZERO
+	_airborne = false
 	
 	var left_busy := _left_tween != null and _left_tween.is_running()
 	var right_busy := _right_tween != null and _right_tween.is_running()
@@ -183,3 +200,27 @@ func _keep_shoe_size(hip_name: String, shoe: MeshInstance3D, rest_pos: Vector3) 
 	var inv := 1.0 / s
 	shoe.position = rest_pos * inv
 	shoe.scale = Vector3.ONE * inv
+
+func _begin_flop(body: CharacterBody3D) -> void:
+	if _left_tween != null:
+		_left_tween.kill()
+	if _right_tween != null:
+		_right_tween.kill()
+	var side := skeleton.global_basis.x
+	side.y = 0.0
+	if side.length_squared() > 0.0001:
+		side = side.normalized()
+	var carry := Vector3(body.velocity.x, 0.0, body.velocity.z)
+	_left_foot_vel = carry - side * 1.5
+	_right_foot_vel = carry + side * 1.5
+
+func _flop_foot(target: Marker3D, constant: Marker3D, vel: Vector3, delta: float) -> Vector3:
+	var pull := constant.global_position - target.global_position
+	vel += pull * foot_spring * delta
+	vel.y -= foot_gravity * delta
+	vel *= exp(-foot_damping * delta)
+	target.global_position += vel * delta
+	if target.global_position.y < 0.0:
+		target.global_position.y = 0.0
+		vel.y = maxf(vel.y, 0.0)
+	return vel
