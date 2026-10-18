@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var air_accel := 10.0
 @export var gravity := 9.8 * 3.0
 @export var jump := 8.0
-@export var turn_degrees := 25.0
+@export var stretch_look := false
 @export var turn_follow := 8
 
 var _pitch := deg_to_rad(-15.0)
@@ -52,11 +52,10 @@ func _physics_process(delta: float) -> void:
 	var forward := -_pivot.global_basis.z
 	forward.y = 0.0
 	var camera_yaw := atan2(forward.x, forward.z)
-	var side_dir := _pivot.global_basis.x
-	side_dir.y = 0.0
-	var side := 0.0
-	if side_dir.length_squared() > 0.0001:
-		side = Vector3(velocity.x, 0.0, velocity.z).dot(side_dir.normalized()) / speed
-	var target_turn := clampf(-side, -1.0, 1.0) * deg_to_rad(turn_degrees)
-	_turn = lerpf(_turn, target_turn, 1.0 - exp(-turn_follow * delta))
-	_model.rotation.y = camera_yaw + _turn
+	var move := Vector3(velocity.x, 0.0, velocity.z)
+	var target_yaw := _model.rotation.y
+	if stretch_look:
+		target_yaw = camera_yaw
+	elif move.length_squared() > 0.25:
+		target_yaw = atan2(move.x, move.z)
+	_model.rotation.y = lerp_angle(_model.rotation.y, target_yaw, 1.0 - exp(-turn_follow * delta))
