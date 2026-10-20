@@ -9,6 +9,7 @@ extends Node3D
 @export var distance_threshold := 0.55
 @export var step_time := 0.12
 @export var step_height := 0.45
+@export var constant_forward := 0.7
 @export var foot_spring := 10.0
 @export var foot_damping := 1
 @export var foot_gravity := 0
@@ -36,11 +37,16 @@ var _thickness_applied := 999.0
 @onready var right_foot_target: Marker3D = %RightFootTarget
 var left_constant_pos: Vector3
 var right_constant_pos: Vector3
+var _left_constant_rest := Vector3.ZERO
+var _right_constant_rest := Vector3.ZERO
+var _constant_lead := 0.0
 
 var _left_shoe_pos := Vector3(0.07975447, 0.22957239, 0.04510027)
 var _right_shoe_pos := Vector3(-0.0655607, 0.22957239, 0.04510027)
 
 func _ready() -> void:
+	_left_constant_rest = left_constant.position
+	_right_constant_rest = right_constant.position
 	if not skeleton.skeleton_updated.is_connected(_on_skeleton_updated):
 		skeleton.skeleton_updated.connect(_on_skeleton_updated)
 	
@@ -54,6 +60,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
+	_place_constants(delta)
 	left_constant_pos = left_constant.global_position
 	right_constant_pos = right_constant.global_position
 
@@ -165,6 +172,19 @@ func _begin_step(target: Marker3D, constant: Marker3D, hip_name: String) -> Twee
 		target.global_position = pos
 	, 0.0, 1.0, duration)
 	return tween
+
+func _place_constants(delta: float) -> void:
+	var body := _character()
+	if body == null or not body.is_on_floor():
+		return
+	var target := 0.0
+	if not bool(body.get("stretch_look")):
+		var move := Vector3(body.velocity.x, 0.0, body.velocity.z)
+		if move.length_squared() > 0.25:
+			target = constant_forward
+	_constant_lead = lerpf(_constant_lead, target, 1.0 - exp(-8.0 * delta))
+	left_constant.position = _left_constant_rest + Vector3(0.0, 0.0, _constant_lead)
+	right_constant.position = _right_constant_rest + Vector3(0.0, 0.0, _constant_lead)
 
 func _step_aim(constant: Marker3D) -> Vector3:
 	return constant.global_position + _move_dir() * distance_threshold
