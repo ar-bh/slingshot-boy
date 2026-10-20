@@ -8,9 +8,14 @@ extends CharacterBody3D
 @export var jump := 8.0
 @export var stretch_look := false
 @export var turn_follow := 8
+@export var bob_height := 0.12
+@export var bob_rate := 10.0
 
 var _pitch := deg_to_rad(-15.0)
 var _turn := 0.0
+var _bob := 0.0
+var _bob_amount := 0.0
+var _model_rest_y := 0.0
 
 @onready var _pivot: Node3D = $CameraPivot
 @onready var _pitch_pivot: Node3D = $CameraPivot/Pitch
@@ -20,6 +25,7 @@ var _turn := 0.0
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$CameraPivot/Pitch/SpringArm3D.add_excluded_object(get_rid())
+	_model_rest_y = _model.position.y
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -59,3 +65,13 @@ func _physics_process(delta: float) -> void:
 	elif move.length_squared() > 0.25:
 		target_yaw = atan2(move.x, move.z)
 	_model.rotation.y = lerp_angle(_model.rotation.y, target_yaw, 1.0 - exp(-turn_follow * delta))
+	_bob_body(delta, move)
+
+func _bob_body(delta: float, move: Vector3) -> void:
+	var moving := is_on_floor() and move.length_squared() > 0.25
+	var target := 0.0
+	if moving:
+		target = bob_height * clampf(move.length() / speed, 0.35, 1.0)
+		_bob += delta * bob_rate * clampf(move.length() / speed, 0.35, 1.5)
+	_bob_amount = lerpf(_bob_amount, target, 1.0 - exp(-8.0 * delta))
+	_model.position.y = _model_rest_y + abs(sin(_bob)) * _bob_amount
