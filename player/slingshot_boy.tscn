@@ -75,6 +75,7 @@ radius = 0.2
 
 [node name="SlingshotBoy" type="CharacterBody3D" unique_id=1205031818]
 script = ExtResource("1_bsi02")
+stretch_look = true
 
 [node name="SlingshotBody" parent="." unique_id=528869564 instance=ExtResource("2_ekwqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4518938, 0)
@@ -186,7 +187,6 @@ mesh = SubResource("SphereMesh_mn11d")
 [node name="Legs" type="Node3D" parent="SlingshotBody/Skeleton" unique_id=242506008]
 script = ExtResource("3_ekwqv")
 step_height = 0.25
-constant_forward = null
 
 [node name="LeftPath" type="Path3D" parent="SlingshotBody/Skeleton/Legs" unique_id=1819692393]
 curve = SubResource("Curve3D_mn11d")

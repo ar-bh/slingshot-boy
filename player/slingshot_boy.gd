@@ -10,22 +10,32 @@ extends CharacterBody3D
 @export var turn_follow := 8
 @export var bob_height := 0.12
 @export var bob_rate := 10.0
+@export var swing := 0.4
+
 
 var _pitch := deg_to_rad(-15.0)
 var _turn := 0.0
 var _bob := 0.0
 var _bob_amount := 0.0
 var _model_rest_y := 0.0
+var _swing_amount := 0.0
+var _left_hand_rest := Vector3.ZERO
+var _right_hand_rest := Vector3.ZERO
 
 @onready var _pivot: Node3D = $CameraPivot
 @onready var _pitch_pivot: Node3D = $CameraPivot/Pitch
 @onready var _model: Node3D = $SlingshotBody
 
+@onready var _left_hand: Marker3D = $SlingshotBody/Skeleton/LeftHandTarget
+@onready var _right_hand: Marker3D = $SlingshotBody/Skeleton/RightHandTarget
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$CameraPivot/Pitch/SpringArm3D.add_excluded_object(get_rid())
 	_model_rest_y = _model.position.y
+	
+	_left_hand_rest = _left_hand.position
+	_right_hand_rest = _right_hand.position
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -75,3 +85,9 @@ func _bob_body(delta: float, move: Vector3) -> void:
 		_bob += delta * bob_rate * clampf(move.length() / speed, 0.35, 1.5)
 	_bob_amount = lerpf(_bob_amount, target, 1.0 - exp(-8.0 * delta))
 	_model.position.y = _model_rest_y + abs(sin(_bob)) * _bob_amount
+	
+	var swing_target := swing if moving else 0.0
+	_swing_amount = lerpf(_swing_amount, swing_target, 1.0 - exp(-8.0 * delta))
+	var along := sin(_bob) * _swing_amount
+	_left_hand.position = _left_hand_rest + Vector3(0.0, 0.0, along)
+	_right_hand.position = _right_hand_rest + Vector3(0.0, 0.0, -along)
