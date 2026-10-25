@@ -28,7 +28,6 @@ func _set_curve(path: Path3D, shoulder_name: String, elbow_name: String, hand_na
 	var shoulder := _bone_pos(shoulder_name)
 	var elbow := _bone_pos(elbow_name)
 	var hand := _bone_pos(hand_name)
-	var control := 2.0 * elbow - 0.5 * (shoulder + hand)
 	var curve := path.curve
 	var steps := 12
 	if curve == null:
@@ -82,4 +81,3 @@ func _keep_glove(shoulder_name: String, glove: MeshInstance3D) -> void:
 	if s <= 0.001:
 		return
 	glove.scale = Vector3.ONE / s
-	

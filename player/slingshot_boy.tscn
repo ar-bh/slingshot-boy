@@ -75,7 +75,6 @@ radius = 0.2
 
 [node name="SlingshotBoy" type="CharacterBody3D" unique_id=1205031818]
 script = ExtResource("1_bsi02")
-stretch_look = true
 
 [node name="SlingshotBody" parent="." unique_id=528869564 instance=ExtResource("2_ekwqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4518938, 0)
@@ -386,7 +385,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7748463, 0)
 shape = SubResource("CapsuleShape3D_mn11d")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=973652776]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.664137, 0)
 
 [node name="Pitch" type="Node3D" parent="CameraPivot" unique_id=787623862]
 unique_name_in_owner = true

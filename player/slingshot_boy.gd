@@ -12,7 +12,6 @@ extends CharacterBody3D
 @export var bob_rate := 10.0
 @export var swing := 0.4
 
-
 var _pitch := deg_to_rad(-15.0)
 var _turn := 0.0
 var _bob := 0.0
